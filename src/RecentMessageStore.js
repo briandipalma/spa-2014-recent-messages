@@ -6,7 +6,7 @@ var recentMessages = new Map();
 
 export default class extends Store {
     getState() {
-        return recentMessagesState;
+        return recentMessages;
     }
 
     handleDispatcherAction(payload) {
