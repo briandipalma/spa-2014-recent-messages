@@ -23,7 +23,7 @@ export default class extends Store {
                 userStatusChanged(action.userName, action.status);
                 break;
             case RecentMessagesConstants.MESSAGE_LIST_ARRIVED:
-                
+                recentMessages = action.messagesState;
                 break;
             default:
                 return true;
@@ -53,8 +53,4 @@ function userStatusChanged(userName, status) {
     var userState = recentMessages.get(userName);
 
     userState.userStatus = status;
-}
-
-function messageListArrived(messagesState) {
-    recentMessages = messagesState;
 }
