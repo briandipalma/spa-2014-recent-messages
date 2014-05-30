@@ -25,8 +25,11 @@
 
 			System
 				.import("src/index")
+				.then(function() {
+					return System.import("workbench/RecentMessagesWorkbench");
+				})
 				.then(function(module) {
-					document.registerElement("spa2014-recent-messages", module.RecentMessagesElement);
+					module.initializeWorkbench();
 				})
 				.catch(function(importError) {
 					console.error(importError);
@@ -35,5 +38,7 @@
 	</head>
 	<body>
 		<spa2014-recent-messages></spa2014-recent-messages>
+		<hr>
+		<button type="button" id="sendButton">Send List.</button>
 	</body>
 </html>
