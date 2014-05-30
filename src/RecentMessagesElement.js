@@ -31,7 +31,7 @@ export class RecentMessagesElement extends HTMLElement {
 	render() {
 		var documentFragment = document.createDocumentFragment();
 
-		this.props.forEach((userName, userState) => {
+		this.props.forEach((userState, userName) => {
 			var messageLI = document.createElement('li');
 
 			messageLI.textContent = userName;
