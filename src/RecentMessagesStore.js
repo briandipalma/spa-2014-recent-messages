@@ -1,4 +1,4 @@
-import Store from 'flux-es6';
+import {Store} from 'flux-es6';
 
 import RecentMessagesConstants from './RecentMessagesConstants';
 
