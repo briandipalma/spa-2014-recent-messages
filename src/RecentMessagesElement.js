@@ -49,6 +49,8 @@ export class RecentMessagesElement extends HTMLElement {
 	}
 
 	_onRecentMessagesClicked(mouseEvent) {
-		console.info(mouseEvent);
+		if (mouseEvent.target.tagName === "LI") {
+			this.recentMessagesActions.messageSelected(mouseEvent.target.textContent);
+		}
 	}
 }
