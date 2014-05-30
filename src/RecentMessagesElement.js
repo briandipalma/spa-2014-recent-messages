@@ -31,13 +31,13 @@ export class RecentMessagesElement extends HTMLElement {
 	render() {
 		var documentFragment = document.createDocumentFragment();
 
-		for ([userName, userState] of this.props) {
+		this.props.forEach((userName, userState) => {
 			var messageLI = document.createElement('li');
 
 			messageLI.textContent = userName;
 			messageLI.className = userState.status + " " + userState.messageOutstanding;
 			documentFragment.appendChild(messageLI);
-		}
+		});
 
 		this.recentMessagesList.innerHTML = "";
 		this.recentMessagesList.appendChild(documentFragment);
