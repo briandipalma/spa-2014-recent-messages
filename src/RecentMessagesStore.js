@@ -9,7 +9,7 @@ export default class extends Store {
         return recentMessages;
     }
 
-    handleDispatcherAction(payload) {
+    handleAction(payload) {
         var action = payload.action;
 
         switch (action.actionType) {
