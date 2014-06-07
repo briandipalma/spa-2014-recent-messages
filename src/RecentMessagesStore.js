@@ -1,6 +1,6 @@
 import {Store} from 'flux-es6';
 
-import RecentMessagesConstants from './RecentMessagesConstants';
+import {RecentMessagesConstants} from './RecentMessagesConstants';
 
 var recentMessages = new Map();
 
