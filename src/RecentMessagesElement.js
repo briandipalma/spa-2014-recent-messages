@@ -28,6 +28,10 @@ export class RecentMessagesElement extends HTMLElement {
 	// Fires when an attribute is added, removed, or updated
 	attributeChangedCallback(attr, oldVal, newVal) {}
 
+	get recentMessagesDispatcher() {
+		return this.recentMessagesActions.recentMessagesDispatcher;
+	}
+
 	render() {
 		var documentFragment = document.createDocumentFragment();
 
