@@ -3,23 +3,22 @@ import {createStoreAndActions} from 'flux-es6';
 import RecentMessagesStore from './RecentMessagesStore';
 import RecentMessagesActions from './RecentMessagesActions';
 
-import "../style/index.css!";
-import recentMessagesTemplate from "../template/recentMessages.text!";
+import recentMessagesTemplate from '../template/recentMessages.text!';
 
 export class RecentMessagesElement extends HTMLElement {
 	// Fires when an instance of the RecentMessagesElement is created
 	createdCallback() {
-		var [recentMessagesStore, recentMessagesActions] = createStoreAndActions(RecentMessagesStore, RecentMessagesActions);
+		var [store, actions] = createStoreAndActions(RecentMessagesStore, RecentMessagesActions);
 
 		this.innerHTML = recentMessagesTemplate;
-		this.recentMessagesStore = recentMessagesStore;
-		this.recentMessagesActions = recentMessagesActions;
+		this.recentMessagesStore = store;
+		this.recentMessagesActions = actions;
 	}
 
 	// Fires when the instance is inserted into the document
 	attachedCallback() {
-		this.recentMessagesList = this.querySelector("ul");
-		this.addEventListener("click", (mouseEvent) => this._onRecentMessagesClicked(mouseEvent));
+		this.recentMessagesList = this.querySelector('ul');
+		this.addEventListener('click', (mouseEvent) => this._onRecentMessagesClicked(mouseEvent));
 
 		this.recentMessagesStore.addChangeListener(this.recentMessagesStoreChanged, this);
 		this.recentMessagesStoreChanged();
@@ -42,11 +41,11 @@ export class RecentMessagesElement extends HTMLElement {
 			var messageLI = document.createElement('li');
 
 			messageLI.textContent = userName;
-			messageLI.className = userState.status + " " + userState.messageOutstanding;
+			messageLI.className = userState.status + ' ' + userState.messageOutstanding;
 			documentFragment.appendChild(messageLI);
 		});
 
-		this.recentMessagesList.innerHTML = "";
+		this.recentMessagesList.innerHTML = '';
 		this.recentMessagesList.appendChild(documentFragment);
 	}
 
@@ -56,7 +55,7 @@ export class RecentMessagesElement extends HTMLElement {
 	}
 
 	_onRecentMessagesClicked(mouseEvent) {
-		if (mouseEvent.target.tagName === "LI") {
+		if (mouseEvent.target.tagName === 'LI') {
 			this.recentMessagesActions.messageSelected(mouseEvent.target.textContent);
 		}
 	}
