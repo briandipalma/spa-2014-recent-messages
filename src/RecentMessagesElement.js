@@ -20,8 +20,7 @@ export class RecentMessagesElement extends HTMLElement {
 		this.recentMessagesList = this.querySelector('ul');
 		this.addEventListener('click', (mouseEvent) => this._onRecentMessagesClicked(mouseEvent));
 
-		this.recentMessagesStore.addChangeListener(this.recentMessagesStoreChanged, this);
-		this.recentMessagesStoreChanged();
+		this.recentMessagesStore.addChangeListenerAndNotify(this.recentMessagesStoreChanged, this);
 	}
 
 	// Fires when the instance is removed from the document
