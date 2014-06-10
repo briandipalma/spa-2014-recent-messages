@@ -23,12 +23,6 @@ export class RecentMessagesElement extends HTMLElement {
 		this.recentMessagesStore.addChangeListenerAndNotify(this.recentMessagesStoreChanged, this);
 	}
 
-	// Fires when the instance is removed from the document
-	detachedCallback() {}
-
-	// Fires when an attribute is added, removed, or updated
-	attributeChangedCallback(attr, oldVal, newVal) {}
-
 	get recentMessagesDispatcher() {
 		return this.recentMessagesActions.recentMessagesDispatcher;
 	}
